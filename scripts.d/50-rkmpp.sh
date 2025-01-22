@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # this is the upstream repo of mpp
-# SCRIPT_REPO="https://github.com/rockchip-linux/mpp.git"
+# SCRIPT_REPO="https://github.com/halabut69/mppTest.git"
 # SCRIPT_COMMIT="bebc9961103af2b53fb18175dd858b15a73c9ad8"
 
 # this is a fork from nyanmisaka with some additional fixes
