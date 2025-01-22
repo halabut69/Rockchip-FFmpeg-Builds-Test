@@ -16,6 +16,8 @@ ffbuild_dockerbuild() {
         --disable-lavf
         --disable-swscale
         --prefix="$FFBUILD_PREFIX"
+        --extra-cflags="-march=armv8.2-a+fp16+dotprod+sve -mtune=cortex-a55" 
+        --extra-ldflags="-march=armv8.2-a+fp16+dotprod+sve -mtune=cortex-a55"
     )
 
     if [[ $TARGET == win* || $TARGET == linux* ]]; then
