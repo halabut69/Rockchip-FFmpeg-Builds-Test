@@ -151,8 +151,6 @@ jobs:
         run: df -h && sudo apt-get clean && docker system prune -a -f && sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc && df -h
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
       - name: Install buildx
         uses: docker/setup-buildx-action@v3
         with:
@@ -194,8 +192,6 @@ jobs:
           tags: ${{ steps.imagename.outputs.name }}:latest
           cache-to: type=registry,mode=max,ref=${{ steps.imagename.outputs.name }}:cache
           cache-from: type=registry,ref=${{ steps.imagename.outputs.name }}:cache
-      - name: Print Log
-        run: cat /45-harfbuzz/build/meson-logs/meson-log.txt
       - name: Cleanup
         continue-on-error: true
         uses: BtbN/delete-untagged-ghcr-action@main
