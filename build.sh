@@ -1,4 +1,4 @@
-#!/bin/bash
+de#!/bin/bash
 set -xe
 shopt -s globstar
 cd "$(dirname "$0")"
@@ -39,7 +39,8 @@ cat <<EOF >"$BUILD_SCRIPT"
         --extra-cflags="\$FF_CFLAGS" --extra-cxxflags="\$FF_CXXFLAGS" --extra-libs="\$FF_LIBS" \
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
-        --extra-version="\$(date +%Y%m%d)"
+        --extra-version="\$(date +%Y%m%d)" \
+        --disable-vulkan
     make -j\$(nproc) V=1
     make install install-doc
 EOF
