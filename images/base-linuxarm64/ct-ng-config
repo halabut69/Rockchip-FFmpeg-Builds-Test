@@ -137,7 +137,7 @@ CT_LOG_LEVEL_MAX="DEBUG"
 #
 # CT_ARCH_ALPHA is not set
 # CT_ARCH_ARC is not set
-CT_ARCH_ARM=y
+CT_ARCH_ARM64=y
 # CT_ARCH_AVR is not set
 # CT_ARCH_BPF is not set
 # CT_ARCH_C6X is not set
@@ -157,11 +157,11 @@ CT_ARCH_ARM=y
 # CT_ARCH_SPARC is not set
 # CT_ARCH_X86 is not set
 # CT_ARCH_XTENSA is not set
-CT_ARCH="arm"
-CT_ARCH_CHOICE_KSYM="ARM"
-CT_ARCH_CPU=""
+CT_ARCH="arm64"
+CT_ARCH_CHOICE_KSYM="ARM64"
+CT_ARCH_CPU="cortex-a5t"
 CT_ARCH_TUNE=""
-CT_ARCH_ARM_SHOW=y
+CT_ARCH_ARM64_SHOW=y
 
 #
 # Options for arm
