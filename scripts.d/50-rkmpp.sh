@@ -6,9 +6,9 @@
 
 # this is a fork from nyanmisaka with some additional fixes
 
-SCRIPT_REPO="https://github.com/nyanmisaka/mpp.git"
+SCRIPT_REPO="https://github.com/halabut69/mppOpt.git"
 SCRIPT_COMMIT="fda5a02e8f88e79ef110e7912c20326a1fea51fb"
-SCRIPT_BRANCH="jellyfin-mpp-next"
+SCRIPT_BRANCH="jellyfin-mpp"
 
 ffbuild_enabled() {
     [[ $ADDINS_STR == *-rk ]] && return 0
