@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# this is the upstream repo of mpp
-# SCRIPT_REPO="https://github.com/halabut69/mppTest.git"
-# SCRIPT_COMMIT="bebc9961103af2b53fb18175dd858b15a73c9ad8"
-
 # this is a fork from nyanmisaka with some additional fixes
 
 SCRIPT_REPO="https://github.com/halabut69/mpp.git"
+SCRIPT_COMMIT="fda5a02e8f88e79ef110e7912c20326a1fea51fb"
 SCRIPT_BRANCH="jellyfin-mpp"
 
 ffbuild_enabled() {
