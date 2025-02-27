@@ -3,7 +3,7 @@
 # this is a fork from nyanmisaka with some additional fixes
 
 SCRIPT_REPO="https://github.com/halabut69/mpp.git"
-SCRIPT_COMMIT="fda5a02e8f88e79ef110e7912c20326a1fea51fb"
+SCRIPT_COMMIT="406e933ffaac79bd719191382de4ff27da77bb8d"
 SCRIPT_BRANCH="jellyfin-mpp"
 
 ffbuild_enabled() {
