@@ -1,5 +1,16 @@
 ARG GH_REPO=ghcr.io/btbn/ffmpeg-builds
 FROM $GH_REPO/base:latest
+#debugging
+# Set up the cross-compilation toolchain for ARM
+RUN apt-get update && apt-get install -y \
+    gcc-arm-linux-gnueabi \
+    g++-arm-linux-gnueabi \
+    libc6-dev-armhf-cross
+
+# Set environment variables for cross-compilation
+ENV CC=aarch64-linux-gnu-gcc
+ENV CXX=aarch64-linux-gnu-g++
+#end debugging
 
 RUN --mount=src=ct-ng-config,dst=/.config \
     git clone --filter=blob:none https://github.com/crosstool-ng/crosstool-ng.git /ct-ng && cd /ct-ng && \
