@@ -1,5 +1,16 @@
 ARG GH_REPO=ghcr.io/btbn/ffmpeg-builds
 FROM $GH_REPO/base:latest
+
+RUN --mount=src=ct-ng-config,dst=/.config \
+    git clone --filter=blob:none https://github.com/crosstool-ng/crosstool-ng.git /ct-ng && cd /ct-ng && \
+    ./bootstrap && \
+    ./configure --enable-local && \
+    make -j$(nproc) && \
+    cp /.config .config && \
+    ./ct-ng build && \
+    cd / && \
+    rm -rf ct-ng
+
 #debugging
 # Set up the cross-compilation toolchain for ARM
 RUN apt-get update && apt-get install -y \
@@ -11,16 +22,6 @@ RUN apt-get update && apt-get install -y \
 ENV CC=aarch64-linux-gnu-gcc
 ENV CXX=aarch64-linux-gnu-g++
 #end debugging
-
-RUN --mount=src=ct-ng-config,dst=/.config \
-    git clone --filter=blob:none https://github.com/crosstool-ng/crosstool-ng.git /ct-ng && cd /ct-ng && \
-    ./bootstrap && \
-    ./configure --enable-local && \
-    make -j$(nproc) && \
-    cp /.config .config && \
-    ./ct-ng build && \
-    cd / && \
-    rm -rf ct-ng
 
 # Prepare cross environment to heavily favour static builds
 RUN \
