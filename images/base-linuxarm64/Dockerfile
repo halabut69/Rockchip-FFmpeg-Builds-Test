@@ -11,18 +11,6 @@ RUN --mount=src=ct-ng-config,dst=/.config \
     cd / && \
     rm -rf ct-ng
 
-#debugging
-# Set up the cross-compilation toolchain for ARM
-RUN apt-get update && apt-get install -y \
-    gcc-arm-linux-gnueabi \
-    g++-arm-linux-gnueabi \
-    libc6-dev-armhf-cross
-
-# Set environment variables for cross-compilation
-ENV CC=aarch64-linux-gnu-gcc
-ENV CXX=aarch64-linux-gnu-g++
-#end debugging
-
 # Prepare cross environment to heavily favour static builds
 RUN \
     find /opt/ct-ng -type l \
