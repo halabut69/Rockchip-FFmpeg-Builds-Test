@@ -1,4 +1,4 @@
-name: Manual Build Rockchip-FFmpeg
+name: Build Rockchip-FFmpeg
 
 on:
   workflow_dispatch:
@@ -22,6 +22,10 @@ jobs:
     name: Pre Checks
     if: ${{ github.event.inputs.buildOnly != 'true' }}
     runs-on: ubuntu-latest
+    steps:
+      - name: Repo Check
+        run: |
+          exit 0
   build_base:
     name: Build base image
     if: ${{ github.event.inputs.buildOnly != 'true' }}
