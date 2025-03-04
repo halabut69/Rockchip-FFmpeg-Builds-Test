@@ -6,13 +6,9 @@
 # SCRIPT_BRANCH="linux-rga-multi"
 
 # this is a fork from nyanmisaka with some additional fixes
-#SCRIPT_REPO="https://github.com/nyanmisaka/rk-mirrors.git"
-#SCRIPT_COMMIT="e97e327662d1c0867d4cbcc01d5caf15250fc4e7"
-#SCRIPT_BRANCH="jellyfin-rga"
-
-SCRIPT_REPO="https://github.com/halabut69/mpp.git"
-SCRIPT_COMMIT="c4f4c5731ae9076b2a4cac9d2cf90f7d6c25d15b"
-SCRIPT_BRANCH="jellyfin-mpp"
+SCRIPT_REPO="https://github.com/nyanmisaka/rk-mirrors.git"
+SCRIPT_COMMIT="e97e327662d1c0867d4cbcc01d5caf15250fc4e7"
+SCRIPT_BRANCH="jellyfin-rga"
 
 ffbuild_enabled() {
     [[ $ADDINS_STR == *-rk ]] && return 0
