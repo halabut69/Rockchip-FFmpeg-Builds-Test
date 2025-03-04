@@ -11,7 +11,7 @@
 
 SCRIPT_REPO="https://github.com/halabut69/mpp.git"
 SCRIPT_COMMIT="c4f4c5731ae9076b2a4cac9d2cf90f7d6c25d15b"
-SCRIPT_BRANCH="jellyfin-mpp"
+SCRIPT_BRANCH="develop"
 
 ffbuild_enabled() {
     [[ $ADDINS_STR == *-rk ]] && return 0
