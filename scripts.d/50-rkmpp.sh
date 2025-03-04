@@ -5,13 +5,13 @@
 # SCRIPT_COMMIT="bebc9961103af2b53fb18175dd858b15a73c9ad8"
 
 # this is a fork from nyanmisaka with some additional fixes
-#SCRIPT_REPO="https://github.com/nyanmisaka/mpp.git"
-#SCRIPT_COMMIT="fda5a02e8f88e79ef110e7912c20326a1fea51fb"
-#SCRIPT_BRANCH="jellyfin-mpp"
+SCRIPT_REPO="https://github.com/nyanmisaka/mpp.git"
+SCRIPT_COMMIT="fda5a02e8f88e79ef110e7912c20326a1fea51fb"
+SCRIPT_BRANCH="jellyfin-mpp"
 
-SCRIPT_REPO="https://github.com/halabut69/mpp.git"
-SCRIPT_COMMIT="c4f4c5731ae9076b2a4cac9d2cf90f7d6c25d15b"
-SCRIPT_BRANCH="develop"
+#SCRIPT_REPO="https://github.com/halabut69/mpp.git"
+#SCRIPT_COMMIT="c4f4c5731ae9076b2a4cac9d2cf90f7d6c25d15b"
+#SCRIPT_BRANCH="develop"
 
 ffbuild_enabled() {
     [[ $ADDINS_STR == *-rk ]] && return 0
