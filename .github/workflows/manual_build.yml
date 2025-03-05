@@ -234,27 +234,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
-      - name: Check pkg-config for rockchip_mpp
-        run: |
-          pkg-config --modversion rockchip_mpp || echo "pkg-config for rockchip_mpp failed"
       - name: Build ffmpeg
         run: |
           T="$(echo -n ${{ github.token }} | sha256sum | head -c 64)" && echo -e "::add-mask::${T}\n::stop-commands::${T}"
           ./build.sh ${{ matrix.target }} ${{ matrix.variant }}
-          # Check and output the config.log to understand the error better
-          if [ -f ffmpeg_sources/ffmpeg/ffbuild/config.log ]; then
-            echo "Displaying config.log contents for debugging"
-            cat ffmpeg_sources/ffmpeg/ffbuild/config.log
-          else
-            echo "config.log not found!"
-          fi
-        continue-on-error: true
-      - name: Upload build logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: ffmpeg-build-logs
-          path: ffmpeg_sources/ffmpeg/ffbuild/config.log
-          overwrite: true
         continue-on-error: true
       - name: Replace spaces in string
         id: strs
