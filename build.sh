@@ -43,16 +43,21 @@ cat <<EOF >"$BUILD_SCRIPT"
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
         --extra-version="\$(date +%Y%m%d)"
-    set -e  # Re-enable immediate exit
-
-
+     CONFIGURE_EXIT_CODE=$?  # Save the exit code of configure
+     
     echo "configure failed with exit code $CONFIGURE_EXIT_CODE"
-    if [[ -f config.log ]]; then
-        echo "Displaying config.log:"
-        cat config.log
-    else
-      echo "config.log not found!"
+    echo "Displaying config.log:"
+    cat ffbuild/config.log
+    cat ../ffbuild/config.log
+
+    #Re-enable immediate exit
+    set -e
+
+    # If configure failed, exit with its error code
+    if [[ $CONFIGURE_EXIT_CODE -ne 0 ]]; then
+        exit $CONFIGURE_EXIT_CODE
     fi
+
     
     make -j\$(nproc) V=1
     make install install-doc
