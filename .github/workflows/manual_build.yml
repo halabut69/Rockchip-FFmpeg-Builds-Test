@@ -241,19 +241,20 @@ jobs:
         run: |
           T="$(echo -n ${{ github.token }} | sha256sum | head -c 64)" && echo -e "::add-mask::${T}\n::stop-commands::${T}"
           ./build.sh ${{ matrix.target }} ${{ matrix.variant }}
+          cat ffbuild/config.log
         continue-on-error: true
       - name: Upload build logs
         uses: actions/upload-artifact@v4
         with:
           name: ffmpeg-build-logs
-          path: build.log
+          path: ffbuild/config.log
+          overwrite: true
         continue-on-error: true
       - name: Replace spaces in string
         id: strs
         run: |
           SLUG="${{ matrix.target }}-${{ matrix.variant }}"
           echo "artifact_slug=${SLUG// /-}" >> $GITHUB_OUTPUT
-        continue-on-error: true
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
