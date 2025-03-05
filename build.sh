@@ -37,18 +37,21 @@ cat <<EOF >"$BUILD_SCRIPT"
 
     sed -i "s/,dump_extra//g" libavcodec/rkmppdec.c
 
+    set +e
     ./configure --prefix=/ffbuild/prefix --pkg-config-flags="--static" \$FFBUILD_TARGET_FLAGS \$FF_CONFIGURE \
         --extra-cflags="\$FF_CFLAGS" --extra-cxxflags="\$FF_CXXFLAGS" --extra-libs="\$FF_LIBS" \
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
         --extra-version="\$(date +%Y%m%d)"
+    set -e  # Re-enable immediate exit
 
-     # Output the config.log for debugging purposes
-    if [ -f ffbuild/ffmpeg/ffbuild/config.log ]; then
-        echo "config.log found. Displaying contents for debugging..."
-        cat ffbuild/ffmpeg/ffbuild/config.log
+
+    echo "configure failed with exit code $CONFIGURE_EXIT_CODE"
+    if [[ -f config.log ]]; then
+        echo "Displaying config.log:"
+        cat config.log
     else
-        echo "config.log not found! Please check the FFmpeg configuration process."
+      echo "config.log not found!"
     fi
     
     make -j\$(nproc) V=1
