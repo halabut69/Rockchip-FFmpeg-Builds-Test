@@ -42,6 +42,15 @@ cat <<EOF >"$BUILD_SCRIPT"
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
         --extra-version="\$(date +%Y%m%d)"
+
+     # Output the config.log for debugging purposes
+    if [ -f ffbuild/ffmpeg/ffbuild/config.log ]; then
+        echo "config.log found. Displaying contents for debugging..."
+        cat ffbuild/ffmpeg/ffbuild/config.log
+    else
+        echo "config.log not found! Please check the FFmpeg configuration process."
+    fi
+    
     make -j\$(nproc) V=1
     make install install-doc
 EOF
