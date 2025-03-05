@@ -10,7 +10,7 @@
 # SCRIPT_BRANCH="jellyfin-mpp"
 
 SCRIPT_REPO="https://github.com/halabut69/mpp.git"
-SCRIPT_COMMIT="fda5a02e8f88e79ef110e7912c20326a1fea51fb"
+SCRIPT_COMMIT="f45e8cc5a0c0327a96274e78278b5706c8ef3c90"
 SCRIPT_BRANCH="develop"
 
 ffbuild_enabled() {
