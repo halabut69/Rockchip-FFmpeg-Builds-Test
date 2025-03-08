@@ -6,7 +6,7 @@
 
 # this is a fork from nyanmisaka with some additional fixes
 SCRIPT_REPO="https://github.com/halabut69/mpp.git"
-SCRIPT_COMMIT="49ff47f96f8e056b354e2ce6f3a65f4e8b28e93b"
+SCRIPT_COMMIT="468e3f14260ca58b45640794ea165f5da8721f11"
 SCRIPT_BRANCH="jellyfin-mpp"
 
 ffbuild_enabled() {
