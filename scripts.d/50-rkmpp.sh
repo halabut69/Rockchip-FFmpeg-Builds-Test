@@ -18,14 +18,16 @@ ffbuild_dockerbuild() {
     mkdir bld
     cd bld
 
-    cmake -DCMAKE_TOOLCHAIN_FILE="$FFBUILD_CMAKE_TOOLCHAIN" \
-      -DCMAKE_BUILD_TYPE=Debug \  # Use Debug build
+cmake -DCMAKE_TOOLCHAIN_FILE="$FFBUILD_CMAKE_TOOLCHAIN" \
+      -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_INSTALL_PREFIX="$FFBUILD_PREFIX" \
       -DBUILD_TEST=OFF \
       -DBUILD_SHARED_LIBS=OFF \
-      -DCMAKE_C_FLAGS="-g -O0" \  # Ensure debug symbols
-      -DCMAKE_CXX_FLAGS="-g -O0" ..      make -j$(nproc)
-    make install
+      -DCMAKE_C_FLAGS="-g -O0" \
+      -DCMAKE_CXX_FLAGS="-g -O0" 
+
+make -j$(nproc)
+make install
 
     rm -rf $FFBUILD_PREFIX/lib/librockchip_mpp.so*
 }
