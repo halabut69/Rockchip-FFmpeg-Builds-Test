@@ -42,7 +42,7 @@ cat <<EOF >"$BUILD_SCRIPT"
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
         --extra-version="\$(date +%Y%m%d)" \
-        --enable-debug
+        --enable-debug=3 --disable-optimizations --disable-stripping
     make -j\$(nproc) V=1
     make install install-doc
 EOF
